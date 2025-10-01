@@ -79,3 +79,114 @@
 input {
     display: none;
 }
+
+.dashboardJDCArea {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
+
+textarea {
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid rgb(14, 14, 97);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    width: 65%;
+    resize: none;
+}
+
+.dashboardAnalyzeButton {
+    width: 150px;
+    height: 150px;
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 100%;
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    font-size: 22px;
+    color: white;
+}
+
+.DashBoardRight{
+    width: 25%;
+    height: fit-content;
+    box-sizing: border-box;
+    background-color: #f4f5fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.DashBoardRightTopCard {
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.DashBoardRightTopCard div:first-child {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.profileIMG {
+    width: 85px;
+    height: 85px;
+    border-radius: 100%;
+    margin: 20px 0;
+}
+
+@media screen and (max-width: 780px) {
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .DashBoardLeft {
+        width: 100%;
+    }
+    .DashBoardHeaderTitle {
+        font-size: 26px;
+    }
+    .DashBoardHeaderLargeTitle {
+        font-size: 34px;
+    }
+    .DashBoardRight {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .dashboardUploadResume {
+        flex-direction: column;
+    }
+    .dashboardUploadResumeBlock {
+        width: 100%;
+    }
+    .dashboardUploadInputField {
+        width: 100%;
+    }
+    label {
+        width: 100%;
+        text-align: center;
+    }
+    .dashboardJDCArea {
+        flex-direction: column;
+    }
+    textarea {
+        width: 100%;
+    }
+    .dashboardAnalyzeButton {
+        border-radius: 30px;
+        width: 100%;
+        height: fit-content;
+        padding: 15px;
+        box-sizing: border-box;
+        margin-top: 15px;
+    }
+}
