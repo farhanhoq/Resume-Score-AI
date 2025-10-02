@@ -7,7 +7,7 @@ export const History = () => {
     <div className={styles.history}>
       <div className={styles.historyCardBlock}>
 
-        <Skeleton variant="rectangular" width={280} height={280} style={{ borderRadius: '20px' }} />
+        <Skeleton variant="rectangular" width={280} height={280} style={{ borderRadius: '20px' }} />  
 
         <div className={styles.historyCard}>
           <div className={styles.cardPercantage}>80%</div>
