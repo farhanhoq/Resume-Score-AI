@@ -41,3 +41,10 @@
     gap: 20px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 780px) {
+    .loginCard {
+        width: 80%;
+    }
+    
+}
