@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
 
 
 
@@ -10,8 +11,6 @@ const WithAuthHOC = (WrappedComponent) => {
     return (props) => {
     const navigate = useNavigate();
     const {setLogin} = useContext(AuthContext);
-
-    console.log(WrappedComponent)
 
     useEffect(() => {
         const isLogin = localStorage.getItem("isLogin");
