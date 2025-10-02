@@ -6,10 +6,10 @@ import { useContext } from "react";
 
 const WithAuthHOC = (WrappedComponent) => {
 
-    const {setLogin} = useContext(AuthContext);
-
-  return (props) => {
+    
+    return (props) => {
     const navigate = useNavigate();
+    const {setLogin} = useContext(AuthContext);
 
     console.log(WrappedComponent)
 
