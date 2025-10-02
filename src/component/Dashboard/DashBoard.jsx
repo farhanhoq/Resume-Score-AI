@@ -2,8 +2,9 @@ import React from 'react'
 import styles from './DashBoard.module.css'
 import ScoreIcon from '@mui/icons-material/Score';
 import Skeleton  from '@mui/material/Skeleton';
+import WithAuthHOC from '../../utils/HOC/withAuthHOC';
 
-export const DashBoard = () => {
+const DashBoard = () => {
   return (
     <div className={styles.dashboard}>
 
@@ -79,3 +80,5 @@ export const DashBoard = () => {
     </div>
   )
 }
+
+export default WithAuthHOC(DashBoard);

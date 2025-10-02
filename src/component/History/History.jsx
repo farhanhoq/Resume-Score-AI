@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from './History.module.css'
 import Skeleton  from '@mui/material/Skeleton';
+import WithAuthHOC from '../../utils/HOC/withAuthHOC';
 
-export const History = () => {
+ const History = () => {
   return (
     <div className={styles.history}>
       <div className={styles.historyCardBlock}>
@@ -53,3 +54,5 @@ export const History = () => {
     </div>
   )
 }
+
+export default WithAuthHOC(History);

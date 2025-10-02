@@ -2,9 +2,9 @@ import { useState } from 'react'
 import './App.css'
 import { SideBar } from './component/Sidebar/sideBar'
 import { Route, Routes } from 'react-router-dom'
-import { Admin } from './component/Admin/Admin'
-import { DashBoard } from './component/Dashboard/DashBoard'
-import { History } from './component/History/History'
+import Admin from './component/Admin/Admin'
+import DashBoard from './component/Dashboard/DashBoard'
+import History from './component/History/History'
 import { Login } from './component/Login/Login'
 
 function App() {
