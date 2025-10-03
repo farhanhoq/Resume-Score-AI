@@ -6,6 +6,7 @@ import { auth, provider } from '../../utils/firebase';
 import { signInWithPopup } from 'firebase/auth';
 import { AuthContext } from '../../utils/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import axios from '../../utils/axios';
 
 
 export const Login = () => {
@@ -22,11 +23,16 @@ export const Login = () => {
                 email: user.email,
                 photo: user.photoURL
             }
-            console.log(userData);
+
+            await axios.post("/user/user", userData).then(response => {
+                setUser(response.data.user);
+                localStorage.setItem("userInfo", JSON.stringify(response.data.user));
+            }).catch(error => {
+                console.error(error);
+            });
+
             setIsLogin(true);
-            setUser(userData);
             localStorage.setItem("isLogin", true);
-            localStorage.setItem("userInfo", JSON.stringify(userData));
 
             navigate("/dashboard");
         } catch (error) {
@@ -38,6 +44,8 @@ export const Login = () => {
   return (
     <div className={styles.login}>
       <div className={styles.loginCard}>
+
+        
 
         <div className={styles.loginCardTitle}>
             <h2>login</h2>
