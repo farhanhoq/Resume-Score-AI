@@ -3,11 +3,13 @@ import styles from './Admin.module.css'
 import Skeleton  from '@mui/material/Skeleton';
 import WithAuthHOC from '../../utils/HOC/withAuthHOC';
 import axios from '../../utils/axios'
+import { useNavigate } from 'react-router-dom';
 
  const Admin = () => {
 
   const [allUser, setAllUser] = useState([])
   const [loader, setLoader] = useState(false)
+  const navigate = useNavigate();
 
   
   useEffect(() => {
@@ -28,6 +30,10 @@ import axios from '../../utils/axios'
     getAllUsers();
   }, [])
 
+  const getResume = (id) => {
+  navigate(`/userResume/${id}`)
+};
+
   return (
       <div className={styles.admin}>
         <div className={styles.userList}>
@@ -47,11 +53,11 @@ import axios from '../../utils/axios'
                     <tr key={item._id}>
                       <td>{item.name}</td>
                       <td>{item.email}</td>
-                      {/* <td>
-                        <button className={styles.resumeButton}>
+                      <td>
+                        <button onClick={() => getResume(item._id)} className={styles.resumeButton}>
                           View Resume
                         </button>
-                      </td> */}
+                      </td>
                     </tr>
                   )
                 })

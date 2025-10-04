@@ -6,6 +6,7 @@ import Admin from './component/Admin/Admin'
 import DashBoard from './component/Dashboard/DashBoard'
 import History from './component/History/History'
 import { Login } from './component/Login/Login'
+import { UserResume } from './component/Admin/UserResume'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,6 +19,7 @@ function App() {
         <Route path='/dashboard' element={<DashBoard/>} />
         <Route path='/' element={<Login/>} />
         <Route path='/history' element={<History/>} />
+        <Route path='/userResume/:userId' element={<UserResume/>} />
       </Routes>
     </div>
   )
