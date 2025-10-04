@@ -3,31 +3,55 @@
     height: 100vh;
     overflow: auto;
     padding: 50px;
-    display: flex;
-    justify-content: space-between;
     background-color: whitesmoke;
     box-sizing: border-box;
 }
 
-.adminBlock {
-    width: 100%;
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+.userList {
+  width: 100%;
 }
 
-.adminCard {
-    width: 100%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    padding: 20px;
-    box-sizing: border-box;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+}
+
+.table th {
+  text-align: left;
+  padding: 16px 12px;
+  font-weight: 600;
+  color: #333;
+  background-color: #f8f9fa;
+  border: none;
+}
+
+.table td {
+  padding: 16px 12px;
+  border: none;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.resumeButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.resumeButton:hover {
+  background-color: #0056b3;
 }
 
 @media screen and (max-width: 780px) {
-    .adminBlock {
-        grid-template-columns: 1fr;
-    }
 
     .admin {
         padding: 20px;

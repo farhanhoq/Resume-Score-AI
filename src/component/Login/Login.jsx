@@ -21,7 +21,7 @@ export const Login = () => {
             const userData = {
                 name: user.displayName,
                 email: user.email,
-                photo: user.photoURL
+                photoURL: user.photoURL
             }
 
             await axios.post("/user/user", userData).then(response => {

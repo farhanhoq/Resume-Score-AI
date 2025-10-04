@@ -33,11 +33,15 @@ const DashBoard = () => {
     formData.append("job_desc", jobDesc);
     formData.append("user", user._id);
 
+    setLoading(true)
+
     try{
       const result = axios.post('/resume/resume', formData)
-      console.log(result)
+      setResult((await result).data.data)
     }catch(err) {
       console.log(err)
+    }finally{
+      setLoading(false)
     }
 
   }
@@ -90,27 +94,51 @@ const DashBoard = () => {
 
           <div>Analyze with AI</div>
 
-          <img className={styles.profileIMG} src="https://randomuser.me/api/portraits/men/85.jpg" alt="Profile Photo" />
+          <img className={styles.profileIMG} src={user?.photoURL} alt="Profile Photo" />
 
-          <h2>User Name</h2>
+          <h2>{user?.name}</h2>
         </div>
 
-        {/* <div className={styles.DashBoardRightTopCard}>
+        {
+          result && <div className={styles.DashBoardRightTopCard}>
 
           <div>RESULT</div>
 
           <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px'}}>
-            <h1>75%</h1>
+            <h1>{result?.score}%</h1>
             <ScoreIcon style={{fontSize: '30px'}} />
           </div>
 
           <div className={styles.dashboardFeedback}>
-            <h1>Feedback</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur repellat tenetur ipsum, officia animi et eaque incidunt tempora nisi placeat quam cum fugiat corporis id assumenda deleniti non eligendi corrupti!</p>
+            <h1>Strength</h1>
+            {result?.strength ? (
+              <ul>
+                {result.strength.split('- ').filter(point => point.trim()).map((point, index) => (
+                  <li key={index}>{point.trim()}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>No strengths listed</p>
+            )}
+            <h1>Improvments</h1>
+            {result?.improvement ? (
+              <ul>
+                {result.improvement.split('- ').filter(point => point.trim()).map((point, index) => (
+                  <li key={index}>{point.trim()}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>No improvements listed</p>
+            )}
           </div>
-        </div> */}
+        </div>
+        }
 
-        <Skeleton variant="rectangular" width={280} height={280} style={{ borderRadius: '20px' }} />
+        {
+          loading && <Skeleton variant="rectangular" width={280} height={280} style={{ borderRadius: '20px' }} />
+        }
+
+        
 
       </div>
 
