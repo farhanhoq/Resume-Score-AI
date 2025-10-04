@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './DashBoard.module.css'
 import ScoreIcon from '@mui/icons-material/Score';
 import Skeleton  from '@mui/material/Skeleton';
 import WithAuthHOC from '../../utils/HOC/withAuthHOC';
+import axios from '../../utils/axios'
+import { AuthContext } from '../../utils/AuthContext';
 
 const DashBoard = () => {
 
@@ -11,9 +13,33 @@ const DashBoard = () => {
   const [resumeFile, setResumeFile] = useState(null);
   const [jobDesc, setJobDesc] = useState("");
 
+  const [result, setResult] = useState(null)
+
+  const {user} = useContext(AuthContext)
+
   const handleOnChangeFile = (e) => {
-    console.log(e.target.files[0].name)
+    setResumeFile(e.target.files[0])
     setUploadFileText(e.target.files[0].name)
+  }
+
+  const handleUpload = async() => {
+    setResult(null)
+    if(!jobDesc || !resumeFile) {
+      alert("Please fill Job Description & Upload Resume")
+      return;
+    }
+    const formData = new FormData();
+    formData.append("resume", resumeFile);
+    formData.append("job_desc", jobDesc);
+    formData.append("user", user._id);
+
+    try{
+      const result = axios.post('/resume/resume', formData)
+      console.log(result)
+    }catch(err) {
+      console.log(err)
+    }
+
   }
 
   return (
@@ -51,9 +77,9 @@ const DashBoard = () => {
           </div>
 
           <div className={styles.dashboardJDCArea}>
-            <textarea className={styles.dashboardJDCAreaText} placeholder='Job Description' rows={10} cols={50}></textarea>
+            <textarea value={jobDesc} onChange={(e) => {setJobDesc(e.target.value)}} className={styles.dashboardJDCAreaText} placeholder='Job Description' rows={10} cols={50}></textarea>
 
-            <div className={styles.dashboardAnalyzeButton}>Analyze</div>
+            <div className={styles.dashboardAnalyzeButton} onClick={handleUpload}>Analyze</div>
           </div>
 
       </div>
