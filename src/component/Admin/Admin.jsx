@@ -42,7 +42,7 @@ import { useNavigate } from 'react-router-dom';
               <tr>
                 <th>Username</th>
                 <th>Email</th>
-                {/* <th>Resume</th> */}
+                <th>Resume</th>
               </tr>
             </thead>
             <tbody>
