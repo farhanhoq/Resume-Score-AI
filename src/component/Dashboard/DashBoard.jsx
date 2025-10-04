@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './DashBoard.module.css'
 import ScoreIcon from '@mui/icons-material/Score';
 import Skeleton  from '@mui/material/Skeleton';
 import WithAuthHOC from '../../utils/HOC/withAuthHOC';
 
 const DashBoard = () => {
+
+  const [uploadFileText, setUploadFileText] = useState("Upload your resume");
+  const [loading, setLoading] = useState(false);
+  const [resumeFile, setResumeFile] = useState(null);
+  const [jobDesc, setJobDesc] = useState("");
+
+  const handleOnChangeFile = (e) => {
+    console.log(e.target.files[0].name)
+    setUploadFileText(e.target.files[0].name)
+  }
+
   return (
     <div className={styles.dashboard}>
 
@@ -29,12 +40,12 @@ const DashBoard = () => {
           <div className={styles.dashboardUploadResume}>
 
             <div className={styles.dashboardUploadResumeBlock}>
-              Upload Resume
+              {uploadFileText}
             </div>
 
             <div className={styles.dashboardUploadInputField}>
               <label htmlFor="inputField" className={styles.uploadBTN}>Upload Resume</label>
-              <input type="file" accept=".pdf" id='inputField' />
+              <input type="file" accept=".pdf" id='inputField' onChange={handleOnChangeFile}/>
             </div>
 
           </div>

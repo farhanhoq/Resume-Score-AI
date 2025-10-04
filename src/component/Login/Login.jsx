@@ -5,7 +5,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import { auth, provider } from '../../utils/firebase';
 import { signInWithPopup } from 'firebase/auth';
 import { AuthContext } from '../../utils/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from '../../utils/axios';
 
 
@@ -52,7 +52,7 @@ export const Login = () => {
             <VpnKeyIcon/>
         </div>
 
-        <div className={styles.googleBtn} onClick={handleLoin}>
+        <div className={styles.googleBtn} onClick={handleLoin}> 
             <GoogleIcon style={{fontSize: 32, color: 'red'}}/>
             Sign in with Google
         </div>
