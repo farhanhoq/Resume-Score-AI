@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import styles from './SideBar.Module.css'
+import styles from './SideBar.module.css'
 import { DocumentScanner } from '@mui/icons-material'
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import HistoryIcon from '@mui/icons-material/History';
